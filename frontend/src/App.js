@@ -10,11 +10,9 @@ import Home from './components/Home';
 
 function App() {
   return (
-    <div id="root">
       <AuthProvider>
         <AppRouter />
       </AuthProvider>
-    </div>
   );
 }
 
