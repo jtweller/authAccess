@@ -1,6 +1,6 @@
 # README
 
-This repository contains code for a simple authentication system built using Node.js, Express.js, MongoDB, and React.js. It allows users to sign up, log in, view all users, and delete users.
+This repository contains code for a simple authentication system built using Node.js, Express.js, MongoDB, React.js, and Tailwind CSS. It allows users to sign up, log in, view all users, and delete users.
 
 ## Backend
 
@@ -40,7 +40,7 @@ The server will run on `http://localhost:8000`.
 
 ## Frontend
 
-The frontend of this application is built using React.js. It provides a user interface for signing up, logging in, and accessing user-related functionalities. Here's a breakdown of the frontend code:
+The frontend of this application is built using React.js and styled using Tailwind CSS. It provides a user interface for signing up, logging in, and accessing user-related functionalities. Here's a breakdown of the frontend code:
 
 ### Components
 
@@ -58,6 +58,10 @@ The frontend of this application is built using React.js. It provides a user int
 ### Routing
 
 - `react-router-dom`: Library for declarative routing
+
+### Tailwind CSS
+
+Tailwind CSS is used for styling the frontend components. It is configured through a Tailwind configuration file `tailwind.config.js`, which includes custom color extensions.
 
 ### Running the Frontend
 
