@@ -61,6 +61,18 @@ const getAllUsers = async (req, res) => {
   }
 };
 
+const getUserProfile = async (req, res) => {
+  try {
+    // Fetch user profile info from req.user (set by auth middleware)
+    const { _id, firstName, lastName, email } = req.user;
+    console.log(_id)
+    // Respond with the user's profile info
+    res.status(200).json({ _id, firstName, lastName, email });
+  } catch (error) {
+    res.status(500).json({ message: 'An error occurred while fetching the user profile' });
+  }
+};
+
 const deleteUser = async (req, res) => {
   try {
       const userId = req.params.userId;
@@ -78,4 +90,4 @@ const deleteUser = async (req, res) => {
 
 module.exports = { deleteUser };
 
-module.exports = { createUser, loginUser, getAllUsers, deleteUser };
+module.exports = { createUser, loginUser, getAllUsers, deleteUser, getUserProfile };

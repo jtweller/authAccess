@@ -1,15 +1,24 @@
 import React from 'react';
-import logo from './dbg.png'; // Import the logo image
+// import bgImg from './dbg.png'; 
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-col justify-start items-center min-h-screen bg-cover bg-center" style={{backgroundImage: `url(${logo})`}}>
-      <a href="https://www.vecteezy.com/free-photos/background">Background Stock photos by Vecteezy</a>
-      <h2 className="text-2xl lg:text-5xl md:text-4xl sm:text-3xl text-skyblue mt-12">Welcome to your dashboard</h2>
+    <div className="flex justify-center items-start min-h-screen bg-powderblue pt-16">
+      <div className="w-full px-4 mx-auto">
+        <div className="p-6 bg-white rounded-lg shadow-lg border-double border-4 border-skyblue">
+          <h2 className="text-2xl lg:text-5xl md:text-4xl sm:text-3xl text-skyblue mt-2 text-center">Welcome to your dashboard</h2>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default Dashboard;
+
+
+
+
+
+
 
 

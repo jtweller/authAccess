@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import Profile from './components/Profile'
 import Home from './components/Home';
 
 function App() {
@@ -26,7 +27,7 @@ function AppRouter() {
         <Route path="/" element={isLoggedIn ? <Dashboard /> : <Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/about" element={<h2>About Page</h2>} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   );

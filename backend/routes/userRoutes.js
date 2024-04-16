@@ -8,4 +8,8 @@ router.post('/signup', userController.createUser);
 router.post('/login', userController.loginUser);
 router.get('/users', authMiddleware, userController.getAllUsers);
 router.delete('/:userId', userController.deleteUser);
+
+// Profile Route
+router.get('/profile', authMiddleware, userController.getUserProfile);
+
 module.exports = router;
