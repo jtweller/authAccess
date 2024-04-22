@@ -1,6 +1,9 @@
 import React from 'react';
 import Modal from 'react-modal';
 
+// Assuming your root element is a div with id "root"
+Modal.setAppElement('#root');
+
 const LogoutModal = ({ isOpen, onRequestClose, onConfirmLogout }) => {
   return (
     <Modal
@@ -35,3 +38,4 @@ const LogoutModal = ({ isOpen, onRequestClose, onConfirmLogout }) => {
 };
 
 export default LogoutModal;
+

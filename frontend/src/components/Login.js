@@ -23,8 +23,8 @@ const Login = () => {
 
   return (
     <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-      <div className="w-full max-w-md p-6 bg-powderblue rounded-lg shadow-lg border-double border-4 border-skyblue">
-        <h2 className="text-2xl text-center mb-4">Login Page</h2>
+      <div className="w-full max-w-md p-6 bg-thistle rounded-lg shadow-lg border-double border-4 border-silver">
+        <h2 className="text-2xl text-vrpurple text-center mb-4">Login Page</h2>
         <input
           className="w-full mb-4 px-3 py-2 border rounded-lg"
           type="email"
@@ -40,7 +40,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button
-          className="w-full bg-skyblue text-brightwhite py-2 px-4 rounded-lg hover:bg-steelblue transition-colors"
+          className="w-full bg-medpurple text-brightwhite py-2 px-4 rounded-lg hover:bg-vrpurple transition-colors"
           onClick={handleLogin}
         >
           Login

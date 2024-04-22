@@ -37,16 +37,16 @@ const Navbar = () => {
     <>
       <nav className="bg-gunmetal flex flex-col lg:flex-row justify-between items-center py-4 px-6">
         <div className="flex items-center space-x-2 lg:space-x-4 lg:w-1/3 lg:justify-center">
-          <Link to="/" className="flex items-center text-skyblue">
+          <Link to="/" className="flex items-center text-thistle">
             <img src={logo} alt="Logo" className="h-14 mr-2" />
           </Link>
           <div className="text-center lg:text-left">
-            <h2 className="text-skyblue text-xl font-bold">Authenticated Access</h2>
+            <h2 className="text-thistle text-xl font-bold">Authenticated Access</h2>
             <h5 className="text-sm text-lightgrey mt-1">bcrypt, jsonwebtoken, tailwind CSS</h5>
           </div>
         </div>
         <div className="flex justify-center lg:justify-end lg:w-2/3 space-x-4 mt-4 lg:mt-0">
-          <Link to="/"   className={`text-skyblue hover:text-steelblue ${
+          <Link to="/"   className={`text-thistle hover:text-medpurple ${
             location.pathname === "/" ? "text-white" : ""
             }`} 
             end aria-current="page"
@@ -55,27 +55,27 @@ const Navbar = () => {
           </Link>
           {isLoggedIn ? (
             <>
-          <Link to="/profile"   className={`text-skyblue hover:text-steelblue ${
+          <Link to="/profile"   className={`text-thistle hover:text-medpurple ${
             location.pathname === "/profile" ? "text-white" : ""
             }`} 
             end aria-current="page"
             >
             Profile
           </Link>
-              <button onClick={openLogoutModal} className="text-skyblue hover:text-steelblue">
+              <button onClick={openLogoutModal} className="text-thistle hover:text-medpurple">
                 Logout
               </button>
             </>
           ) : (
             <>
-             <Link to="/login"   className={`text-skyblue hover:text-steelblue ${
+             <Link to="/login"   className={`text-thistle hover:text-medpurple ${
             location.pathname === "/login" ? "text-white" : ""
             }`} 
             end aria-current="page"
             >
             Login
           </Link>
-          <Link to="/signup"   className={`text-skyblue hover:text-steelblue ${
+          <Link to="/signup"   className={`text-thistle hover:text-medpurple ${
             location.pathname === "/signup" ? "text-white" : ""
             }`} 
             end aria-current="page"
