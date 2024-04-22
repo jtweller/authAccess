@@ -1,5 +1,9 @@
 {
   "version": 2,
+  "framework": {
+    "frontend": "react",
+    "backend": "nodejs"
+  },
   "builds": [
     { "src": "/frontend/**", "use": "@vercel/static" },
     { "src": "/backend/**", "use": "@vercel/node" }
@@ -9,4 +13,5 @@
     { "src": "/backend/.*", "dest": "/backend/index.js" }
   ]
 }
+
 
