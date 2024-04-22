@@ -1,17 +1,14 @@
 {
   "version": 2,
-  "framework": {
-    "frontend": "react",
-    "backend": "nodejs"
-  },
   "builds": [
     { "src": "/frontend/**", "use": "@vercel/static" },
     { "src": "/backend/**", "use": "@vercel/node" }
   ],
   "routes": [
-    { "src": "/frontend/.*", "dest": "/frontend/index.html" },
-    { "src": "/backend/.*", "dest": "/backend/index.js" }
+    { "src": "/frontend/(.*)", "dest": "/frontend/$1" },
+    { "src": "/backend/(.*)", "dest": "/backend/$1" }
   ]
 }
+
 
 
