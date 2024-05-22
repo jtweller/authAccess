@@ -25,6 +25,20 @@ const Home = () => {
         </div>
       </div>
       <div className="mt-8 bg-lightgrey p-4">
+        <h2 className="text-center text-xl font-semibold mb-4">Developer Tools Features</h2>
+        <p className="text-justify p-4">
+          To streamline the development process and enhance productivity, this project integrates several powerful developer tools. Comments in the code provide detailed explanations of each feature.
+        </p>
+        <ul className="list-disc p-4">
+          <li>
+            <strong>Concurrently:</strong> Enables simultaneous running of multiple commands, such as starting the React development server and the backend server concurrently, improving efficiency and reducing setup time.
+          </li>
+          <li>
+            <strong>tasks.json:</strong> Utilized for configuring tasks in VS Code, it automates various development workflows, including building the project, running tests, and deploying the application, thus simplifying complex tasks into single commands.
+          </li>
+        </ul>
+      </div>
+      <div className="mt-8 bg-lightgrey p-4">
         <h2 className="text-center text-xl font-semibold mb-4">Advantages of Combined Usage</h2>
         <ul className="list-disc inline-block text-left p-4 md:p-8 lg:p-12 girl">
           <li>Enhanced Security: By combining bcrypt for password hashing and jsonwebtoken for authentication tokens...</li>
@@ -38,4 +52,8 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
+
 
