@@ -12,8 +12,10 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       const response = await axios.post('http://localhost:8000/api/users/login', { email, password });
+      console.log(response.data);
       const token = response.data.token;
       localStorage.setItem('token', token);
+      console.log('Token from localStorage:', token);
       setIsLoggedIn(true); // Update login status
       navigate('/'); // Navigate to the dashboard route
     } catch (error) {

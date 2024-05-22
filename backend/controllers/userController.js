@@ -63,12 +63,14 @@ const getAllUsers = async (req, res) => {
 
 const getUserProfile = async (req, res) => {
   try {
+    console.log('User profile data:', req.user); // Debug log
     // Fetch user profile info from req.user (set by auth middleware)
     const { _id, firstName, lastName, email } = req.user;
     console.log(_id)
     // Respond with the user's profile info
     res.status(200).json({ _id, firstName, lastName, email });
   } catch (error) {
+    console.error('Error fetching user profile:', error); // Debug log
     res.status(500).json({ message: 'An error occurred while fetching the user profile' });
   }
 };

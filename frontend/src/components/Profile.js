@@ -9,22 +9,26 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchUserProfile = async () => {
+      console.log('Here');
       try {
         const token = localStorage.getItem('token');
         if (!token) {
+          console.log('Token not found in localStorage');
           setIsLoggedIn(false); // Set isLoggedIn to false if token is not found
           return;
         }
 
+        console.log('Token from localStorage:', token);
         const response = await axios.get('http://localhost:8000/api/users/profile', {
           headers: {
-            Authorization: token
+            Authorization: `Bearer ${token}`
           }
         });
-        console.log(response)
+        console.log('Response from profile API:', response.data); // Debug log
         setUserData(response.data);
       } catch (error) {
-        setError(error.response.data.message);
+        console.error('Error fetching user profile:', error.response);
+        setError(error.response?.data?.message || 'An error occurred');
       }
     };
 
@@ -54,6 +58,9 @@ const Profile = () => {
 };
 
 export default Profile;
+
+
+
 
 
 
