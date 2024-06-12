@@ -2,9 +2,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const authMiddleware = require('./middleware/authMiddleware');
 const userRoutes = require('./routes/userRoutes');
 require('dotenv').config();
 
