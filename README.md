@@ -1,7 +1,6 @@
 # README
 
-This repository contains code for a simple authentication system built using Node.js, Express.js, MongoDB, React.js, and Tailwind CSS. It allows users to sign up, log in, view all users, and delete users.
-
+This repository contains code for a simple authentication system built using Node.js, Express.js, MongoDB, React.js, and Tailwind CSS. It allows users to sign up, log in, view their profile, and update their profile info.
 ## Backend
 
 The backend of this application is built using Node.js and Express.js. It provides API endpoints for user authentication and management. Here's a breakdown of the backend code:
