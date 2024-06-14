@@ -1,8 +1,10 @@
 import React from 'react';
 import Modal from 'react-modal';
 
+// Set the root element for accessibility
 Modal.setAppElement('#root');
 
+// LogoutModal component for confirming user logout
 const LogoutModal = ({ isOpen, onRequestClose, onConfirmLogout }) => {
   return (
     <Modal
@@ -34,6 +36,7 @@ const LogoutModal = ({ isOpen, onRequestClose, onConfirmLogout }) => {
   );
 };
 
+// ProfileUpdateModal component for confirming profile update
 const ProfileUpdateModal = ({ isOpen, onRequestClose, onConfirmUpdate }) => {
   return (
     <Modal
@@ -66,6 +69,7 @@ const ProfileUpdateModal = ({ isOpen, onRequestClose, onConfirmUpdate }) => {
 };
 
 export { LogoutModal, ProfileUpdateModal };
+
 
 
 

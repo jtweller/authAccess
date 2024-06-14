@@ -1,21 +1,23 @@
 import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../AuthContext';
-import { ProfileUpdateModal } from './modals/AppModals';  // Update this line
+import { ProfileUpdateModal } from './modals/AppModals';  // Import modal component
 
+// Profile component to display and update user's profile information
 const Profile = () => {
-  const { setIsLoggedIn } = useContext(AuthContext);
+  const { setIsLoggedIn } = useContext(AuthContext); // Access authentication context
   const [userData, setUserData] = useState({
     firstName: '',
     lastName: '',
     email: ''
-  });
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
-  const [isEditable, setIsEditable] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  }); // State to manage user data
+  const [error, setError] = useState(null); // State to manage error messages
+  const [success, setSuccess] = useState(null); // State to manage success messages
+  const [isEditable, setIsEditable] = useState(false); // State to manage if profile is editable
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
 
   useEffect(() => {
+    // Fetch user profile data when the component mounts
     const fetchUserProfile = async () => {
       try {
         const token = localStorage.getItem('token');
@@ -38,6 +40,7 @@ const Profile = () => {
     fetchUserProfile();
   }, [setIsLoggedIn]);
 
+  // Handle input changes and update user data state
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserData((prevData) => ({
@@ -46,6 +49,7 @@ const Profile = () => {
     }));
   };
 
+  // Handle form submission to update user profile
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -127,6 +131,7 @@ const Profile = () => {
 };
 
 export default Profile;
+
 
 
 

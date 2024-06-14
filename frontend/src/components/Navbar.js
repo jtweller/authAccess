@@ -1,14 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthContext';
-import { LogoutModal } from './modals/AppModals';
-import logo from './logo.png';
+import { LogoutModal } from './modals/AppModals'; // Import modal component
+import logo from './logo.png'; // Import logo image
 
+// Navbar component
 const Navbar = () => {
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
-  const navigate = useNavigate(); // Initialize useNavigate
-  const location = useLocation();
-  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext); // Access authentication context
+  const navigate = useNavigate(); // Initialize useNavigate hook for navigation
+  const location = useLocation(); // Initialize useLocation hook to get current path
+  const [showLogoutModal, setShowLogoutModal] = useState(false); // State to manage logout modal visibility
 
   useEffect(() => {
     // Check if the user is logged in when the component mounts
@@ -18,6 +19,7 @@ const Navbar = () => {
     }
   }, [setIsLoggedIn]);
 
+  // Handle user logout
   const handleLogout = () => {
     localStorage.removeItem('token');
     setIsLoggedIn(false);
@@ -25,10 +27,12 @@ const Navbar = () => {
     setShowLogoutModal(false); // Close the logout modal
   };
 
+  // Open logout modal
   const openLogoutModal = () => {
     setShowLogoutModal(true);
   };
 
+  // Close logout modal
   const closeLogoutModal = () => {
     setShowLogoutModal(false);
   };
@@ -46,42 +50,26 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex justify-center lg:justify-end lg:w-2/3 space-x-4 mt-4 lg:mt-0">
-          <Link to="/"   className={`text-thistle hover:text-medpurple ${
-            location.pathname === "/" ? "text-white" : ""
-            }`} 
-            end aria-current="page"
-            >
+          <Link to="/" className={`text-thistle hover:text-medpurple ${location.pathname === "/" ? "text-white" : ""}`} end aria-current="page">
             Home
           </Link>
           {isLoggedIn ? (
             <>
-          <Link to="/profile"   className={`text-thistle hover:text-medpurple ${
-            location.pathname === "/profile" ? "text-white" : ""
-            }`} 
-            end aria-current="page"
-            >
-            Profile
-          </Link>
+              <Link to="/profile" className={`text-thistle hover:text-medpurple ${location.pathname === "/profile" ? "text-white" : ""}`} end aria-current="page">
+                Profile
+              </Link>
               <button onClick={openLogoutModal} className="text-thistle hover:text-medpurple">
                 Logout
               </button>
             </>
           ) : (
             <>
-             <Link to="/login"   className={`text-thistle hover:text-medpurple ${
-            location.pathname === "/login" ? "text-white" : ""
-            }`} 
-            end aria-current="page"
-            >
-            Login
-          </Link>
-          <Link to="/signup"   className={`text-thistle hover:text-medpurple ${
-            location.pathname === "/signup" ? "text-white" : ""
-            }`} 
-            end aria-current="page"
-            >
-            Signup
-          </Link>
+              <Link to="/login" className={`text-thistle hover:text-medpurple ${location.pathname === "/login" ? "text-white" : ""}`} end aria-current="page">
+                Login
+              </Link>
+              <Link to="/signup" className={`text-thistle hover:text-medpurple ${location.pathname === "/signup" ? "text-white" : ""}`} end aria-current="page">
+                Signup
+              </Link>
             </>
           )}
         </div>
@@ -96,6 +84,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
 
 

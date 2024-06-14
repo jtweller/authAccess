@@ -1,12 +1,13 @@
 import React from 'react';
 
+// Home component with an overview of the app
 const Home = () => {
   return (
     <div className="container mx-auto">
       <h1 className="text-center text-3xl font-bold my-8">
         Authenticated Access: <br /> Secure User Management
       </h1>
-      <p className="text-center text-blue-500 text-1xl font-bold" >Designed with Student Developers in mind.</p>
+      <p className="text-center text-blue-500 text-1xl font-bold">Designed with Student Developers in mind.</p>
       <div className="flex flex-col md:flex-row justify-center md:justify-between bg-lightgrey p-4 md:p-8">
         <div className="max-w-md mx-auto md:mr-4 mb-8 md:mb-0 bg-lightgrey">
           <h2 className="text-center text-xl font-semibold mb-4">Overview</h2>
@@ -17,18 +18,18 @@ const Home = () => {
         <div className="max-w-md mx-auto md:ml-4 bg-lightgrey">
           <h2 className="text-center text-xl font-semibold mb-4">Technologies</h2>
           <ul className="list-disc p-4">
-            <li>React: As the foundation of this app...</li>
-            <li>MongoDB: MongoDB serves as the backend database for this app...</li>
-            <li>bcrypt: Security is paramount in this app...</li>
-            <li>jsonwebtoken: This app utilizes jsonwebtoken for generating and validating authentication tokens...</li>
-            <li>Tailwind CSS: Tailwind CSS elevates the visual aesthetics of this app...</li>
+            <li><strong>React:</strong> The foundation of this app, providing a component-based structure.</li>
+            <li><strong>MongoDB:</strong> Serves as the backend database for storing user information securely.</li>
+            <li><strong>bcrypt:</strong> Ensures security by hashing passwords before storing them.</li>
+            <li><strong>jsonwebtoken:</strong> Utilized for generating and validating authentication tokens to secure routes.</li>
+            <li><strong>Tailwind CSS:</strong> Enhances the visual aesthetics and provides utility-first CSS for rapid UI development.</li>
           </ul>
         </div>
       </div>
       <div className="mt-8 bg-lightgrey p-4">
-        <h2 className="text-center text-xl font-semibold mb-4">Developer Tools Features</h2>
+        <h2 className="text-center text-xl font-semibold mb-4">Developer Tools and Features</h2>
         <p className="text-justify p-4">
-          This project integrates a few powerful developer tools. While these tools are optional, their use is recommended, and are worth the extra time to familiarize yourself with. There are extensive comments throughout the app for each feature, as well as debugging log prints in common places one might need in finding errors. There is readme.md with step by step instructions for installation, once installed review the comments throughout the app. 
+          This project integrates a few powerful developer tools. While these tools are optional, their use is recommended, and are worth the extra time to familiarize yourself with. Extensive comments are provided throughout the app for each feature, along with debugging log prints in common places to help in finding errors. A `README.md` file with step-by-step instructions for installation is included. Once installed, review the comments throughout the app.
         </p>
         <ul className="list-disc p-4">
           <li>
@@ -46,14 +47,13 @@ const Home = () => {
         </ul>
       </div>
 
-
       <div className="mt-8 bg-lightgrey p-4">
         <h2 className="text-center text-xl font-semibold mb-4">Advantages of Combined Usage</h2>
         <ul className="list-disc inline-block text-left p-4 md:p-8 lg:p-12 girl">
-          <li>Enhanced Security: By combining bcrypt for password hashing and jsonwebtoken for authentication tokens...</li>
-          <li>Scalability and Flexibility: With MongoDB as the backend database...</li>
-          <li>Efficient Development: Tailwind CSS streamlines UI development...</li>
-          <li>Optimized User Experience: The combination of React's dynamic rendering capabilities...</li>
+          <li><strong>Enhanced Security:</strong> By combining bcrypt for password hashing and jsonwebtoken for authentication tokens, the app ensures secure user authentication.</li>
+          <li><strong>Scalability and Flexibility:</strong> With MongoDB as the backend database, the app can scale easily and handle large amounts of data.</li>
+          <li><strong>Efficient Development:</strong> Tailwind CSS streamlines UI development with utility-first CSS classes, making it easy to design responsive and modern user interfaces.</li>
+          <li><strong>Optimized User Experience:</strong> The combination of React's dynamic rendering capabilities and Tailwind CSS's styling features provides a seamless and engaging user experience.</li>
         </ul>
       </div>
     </div>
@@ -61,6 +61,8 @@ const Home = () => {
 };
 
 export default Home;
+
+
 
 
 

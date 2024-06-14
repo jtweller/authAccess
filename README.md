@@ -1,6 +1,6 @@
 # README
 
-This repository contains code for a simple authentication system built using Node.js, Express.js, MongoDB, React.js, and Tailwind CSS. It allows users to sign up, log in, view all users, and delete users.
+This repository contains code for a simple authentication system built using Node.js, Express.js, MongoDB, React.js, and Tailwind CSS. It allows users to sign up, log in, view their profile, and update their profile.
 
 ## Backend
 
@@ -13,6 +13,7 @@ The backend of this application is built using Node.js and Express.js. It provid
 - `cors`: Middleware for enabling Cross-Origin Resource Sharing
 - `bcrypt`: Library for hashing passwords
 - `jsonwebtoken`: Library for generating and verifying JSON Web Tokens
+- `dotenv`: Module to load environment variables from a `.env` file
 
 ### Middleware
 
@@ -24,7 +25,7 @@ The backend of this application is built using Node.js and Express.js. It provid
 
 ### Environment Variables
 
-Make sure to set up the following environment variables:
+Make sure to set up the following environment variables in a `.env` file:
 
 - `MONGODB_URI`: MongoDB connection string
 - `JWT_SECRET`: Secret key for JWT token generation
@@ -49,6 +50,7 @@ The frontend of this application is built using React.js and styled using Tailwi
 - `Login`: Component for user login
 - `Dashboard`: Component for displaying user dashboard
 - `Home`: Component for the home page
+- `Profile`: Component for viewing and updating user profile
 
 ### Context
 
@@ -67,8 +69,9 @@ Tailwind CSS is used for styling the frontend components. It is configured throu
 
 To run the frontend, follow these steps:
 
-1. Install dependencies: `npm install`
-2. Start the development server: `npm start`
+1. Navigate to the frontend directory: `cd frontend`
+2. Install dependencies: `npm install`
+3. Start the development server: `npm start`
 
 The frontend will be accessible in the browser at `http://localhost:3000`.
 
@@ -76,8 +79,8 @@ The frontend will be accessible in the browser at `http://localhost:3000`.
 
 - `POST /api/users/signup`: Sign up a new user
 - `POST /api/users/login`: Log in an existing user
-- `GET /api/users`: Get all users (protected route)
-- `DELETE /api/users/:userId`: Delete a user (protected route)
+- `GET /api/users/profile`: Get the profile of the logged-in user (protected route)
+- `PUT /api/users/profile`: Update the profile of the logged-in user (protected route)
 
 ## Middleware
 
@@ -100,3 +103,4 @@ Library for generating and verifying JSON Web Tokens.
 Make sure to set up the environment variables and MongoDB connection string before running the application. Additionally, protect routes that require authentication using the `authMiddleware`.
 
 Feel free to reach out for any further assistance or inquiries.
+

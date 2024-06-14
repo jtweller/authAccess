@@ -3,17 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../AuthContext';
 
+// Signup component for user registration
 const Signup = () => {
-  const navigate = useNavigate();
-  const { setIsLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate(); // Initialize useNavigate hook for navigation
+  const { setIsLoggedIn } = useContext(AuthContext); // Access authentication context
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
     password: '',
-  });
-  const [signupError, setSignupError] = useState(null);
+  }); // State to manage form data
+  const [signupError, setSignupError] = useState(null); // State to manage signup error messages
 
+  // Handle input changes and update form data state
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -21,6 +23,7 @@ const Signup = () => {
     });
   };
 
+  // Handle form submission for user signup
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -28,10 +31,10 @@ const Signup = () => {
       const response = await axios.post('http://localhost:8000/api/users/signup', formData);
       
       if (response.status === 201) {
-        // Signup successful
+        // Signup successful, login the user
         const loginResponse = await axios.post('http://localhost:8000/api/users/login', { email: formData.email, password: formData.password });
         const token = loginResponse.data.token;
-        localStorage.setItem('token', token);
+        localStorage.setItem('token', token); // Store token in local storage
         setIsLoggedIn(true); // Update login status
         navigate('/'); // Redirect to dashboard on success
       } else {
@@ -60,6 +63,7 @@ const Signup = () => {
 };
 
 export default Signup;
+
 
 
 

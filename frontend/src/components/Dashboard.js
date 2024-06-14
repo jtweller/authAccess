@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Dashboard component to display user's dashboard
 const Dashboard = () => {
   return (
     <div className="flex justify-center items-start min-h-screen bg-silver pt-16">
@@ -23,6 +24,8 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+
 
 
 

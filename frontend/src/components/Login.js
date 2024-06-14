@@ -3,18 +3,20 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { AuthContext } from '../AuthContext';
 
+// Login component for user authentication
 const Login = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
-  const { setIsLoggedIn } = useContext(AuthContext);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate hook for navigation
+  const { setIsLoggedIn } = useContext(AuthContext); // Access authentication context
+  const [email, setEmail] = useState(''); // State to manage email input
+  const [password, setPassword] = useState(''); // State to manage password input
 
+  // Handle login form submission
   const handleLogin = async () => {
     try {
       const response = await axios.post('http://localhost:8000/api/users/login', { email, password });
       console.log(response.data);
       const token = response.data.token;
-      localStorage.setItem('token', token);
+      localStorage.setItem('token', token); // Store token in local storage
       console.log('Token from localStorage:', token);
       setIsLoggedIn(true); // Update login status
       navigate('/'); // Navigate to the dashboard route
@@ -53,6 +55,7 @@ const Login = () => {
 };
 
 export default Login;
+
 
 
 
