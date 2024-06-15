@@ -44,6 +44,9 @@ const Home = () => {
           <li>
             <strong>Nodemon:</strong> A utility that monitors for any changes in your source and automatically restarts your server. It significantly speeds up development by removing the need to manually restart the server after each change.
           </li>
+          <li>
+            <strong>userCleanup.js:</strong> Demonstrates automated database cleanup possibilities by removing users who were created more than one hour ago. This is useful for managing temporary users or testing data without manual intervention.
+          </li>
         </ul>
       </div>
 
@@ -61,6 +64,7 @@ const Home = () => {
 };
 
 export default Home;
+
 
 
 

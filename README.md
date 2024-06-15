@@ -1,113 +1,7 @@
 # README
 
-This repository contains code for a simple authentication system built using Node.js, Express.js, MongoDB, React.js, and Tailwind CSS. It allows users to sign up, log in, view their profile, and update their profile.
-
-## Backend
-
-The backend of this application is built using Node.js and Express.js. It provides API endpoints for user authentication and management. Here's a breakdown of the backend code:
-
-### Dependencies
-
-- `express`: Web framework for Node.js
-- `mongoose`: MongoDB object modeling tool
-- `cors`: Middleware for enabling Cross-Origin Resource Sharing
-- `bcrypt`: Library for hashing passwords
-- `jsonwebtoken`: Library for generating and verifying JSON Web Tokens
-- `dotenv`: Module to load environment variables from a `.env` file
-
-### Middleware
-
-- `authMiddleware`: Middleware to verify JWT tokens for protected routes
-
-### Routes
-
-- `userRoutes`: Routes for user authentication and management
-
-### Environment Variables
-
-Make sure to set up the following environment variables in a `.env` file:
-
-- `MONGODB_URI`: MongoDB connection string
-- `JWT_SECRET`: Secret key for JWT token generation
-
-### Running the Backend
-
-To run the backend, follow these steps:
-
-1. Install dependencies: `npm install`
-2. Start the server: `npm start`
-
-The server will run on `http://localhost:8000`.
-
-## Frontend
-
-The frontend of this application is built using React.js and styled using Tailwind CSS. It provides a user interface for signing up, logging in, and accessing user-related functionalities. Here's a breakdown of the frontend code:
-
-### Components
-
-- `Navbar`: Navigation bar component
-- `Signup`: Component for user signup
-- `Login`: Component for user login
-- `Dashboard`: Component for displaying user dashboard
-- `Home`: Component for the home page
-- `Profile`: Component for viewing and updating user profile
-
-### Context
-
-- `AuthContext`: Context for managing user authentication state
-- `AuthProvider`: Provider component for the authentication context
-
-### Routing
-
-- `react-router-dom`: Library for declarative routing
-
-### Tailwind CSS
-
-Tailwind CSS is used for styling the frontend components. It is configured through a Tailwind configuration file `tailwind.config.js`, which includes custom color extensions.
-
-### Running the Frontend
-
-To run the frontend, follow these steps:
-
-1. Navigate to the frontend directory: `cd frontend`
-2. Install dependencies: `npm install`
-3. Start the development server: `npm start`
-
-The frontend will be accessible in the browser at `http://localhost:3000`.
-
-## API Endpoints
-
-- `POST /api/users/signup`: Sign up a new user
-- `POST /api/users/login`: Log in an existing user
-- `GET /api/users/profile`: Get the profile of the logged-in user (protected route)
-- `PUT /api/users/profile`: Update the profile of the logged-in user (protected route)
-
-## Middleware
-
-### `authMiddleware`
-
-Middleware to verify JWT tokens for protected routes.
-
-## Utilities
-
-### `bcrypt`
-
-Library for hashing passwords.
-
-### `jsonwebtoken`
-
-Library for generating and verifying JSON Web Tokens.
-
-## Note
-
-Make sure to set up the environment variables and MongoDB connection string before running the application. Additionally, protect routes that require authentication using the `authMiddleware`.
-
-Feel free to reach out for any further assistance or inquiries.
-
-
-# README
-
 This repository contains code for a simple authentication system built using Node.js, Express.js, MongoDB, React.js, and Tailwind CSS. It allows users to sign up, log in, view their profile, and update their profile info.
+
 ## Backend
 
 The backend of this application is built using Node.js and Express.js. It provides API endpoints for user authentication and management. Here's a breakdown of the backend code:
@@ -130,10 +24,7 @@ The backend of this application is built using Node.js and Express.js. It provid
 
 ### Environment Variables
 
-Make sure to set up the following environment variables:
-
-- `MONGODB_URI`: MongoDB connection string
-- `JWT_SECRET`: Secret key for JWT token generation
+Environment variables are included in the package to connect to a free Atlas MongoDB database. The `.env` file is pre-configured for this setup.
 
 ### Running the Backend
 
@@ -201,8 +92,8 @@ Library for hashing passwords.
 
 Library for generating and verifying JSON Web Tokens.
 
-## Note
+### `userCleanup.js`
 
-Make sure to set up the environment variables and MongoDB connection string before running the application. Additionally, protect routes that require authentication using the `authMiddleware`.
+The `userCleanup.js` script is not necessary for the main features of this app. However, it demonstrates automated database cleanup possibilities by removing users who were created more than one hour ago. This can be useful for managing temporary users or testing data without manual intervention.
 
 Feel free to reach out for any further assistance or inquiries.
