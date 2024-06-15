@@ -110,12 +110,18 @@ const Profile = () => {
               />
             </div>
             {!isEditable ? (
-              <button type="button" onClick={() => setIsEditable(true)} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Update Profile</button>
+              <>
+                <button type="button" onClick={() => setIsEditable(true)} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Update Profile</button>
+                <p className="text-gray-500 mt-2">Fields are uneditable until "Update Profile" is clicked.</p>
+              </>
             ) : (
-              <div className="flex">
-                <button type="button" onClick={() => setIsModalOpen(true)} className="mt-4 bg-green-500 text-white px-4 py-2 rounded mr-2">Save</button>
-                <button type="button" onClick={() => setIsEditable(false)} className="mt-4 bg-gray-500 text-white px-4 py-2 rounded">Cancel</button>
-              </div>
+              <>
+                <div className="flex">
+                  <button type="button" onClick={() => setIsModalOpen(true)} className="mt-4 bg-green-500 text-white px-4 py-2 rounded mr-2">Save</button>
+                  <button type="button" onClick={() => setIsEditable(false)} className="mt-4 bg-gray-500 text-white px-4 py-2 rounded">Cancel</button>
+                </div>
+                <p className="text-gray-500 mt-2">Fields are now editable. You can save or cancel your changes.</p>
+              </>
             )}
           </form>
         </div>
@@ -131,6 +137,7 @@ const Profile = () => {
 };
 
 export default Profile;
+
 
 
 
