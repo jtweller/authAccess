@@ -44,6 +44,7 @@ The frontend of this application is built using React.js and styled using Tailwi
 - `Navbar`: Navigation bar component
 - `Signup`: Component for user signup
 - `Login`: Component for user login
+- `Profile`: Component for user profile
 - `Dashboard`: Component for displaying user dashboard
 - `Home`: Component for the home page
 
