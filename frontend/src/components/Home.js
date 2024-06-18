@@ -21,7 +21,7 @@ const Home = () => {
             <li><strong>React:</strong> The foundation of this app, providing a component-based structure.</li>
             <li><strong>MongoDB:</strong> Serves as the backend database for storing user information securely.</li>
             <li><strong>bcrypt:</strong> Ensures security by hashing passwords before storing them.</li>
-            <li><strong>jsonwebtoken:</strong> Utilized for generating and validating authentication tokens to secure routes.</li>
+            <li><strong>jsonwebtoken(JWT):</strong> Utilized for generating and validating authentication tokens to secure routes.</li>
             <li><strong>Tailwind CSS:</strong> Enhances the visual aesthetics and provides utility-first CSS for rapid UI development.</li>
           </ul>
         </div>

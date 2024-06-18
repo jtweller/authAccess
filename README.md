@@ -1,4 +1,3 @@
-Certainly! Below is the reformatted README with proper GitHub Markdown syntax.
 
 # README
 
