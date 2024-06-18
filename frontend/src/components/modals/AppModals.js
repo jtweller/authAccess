@@ -68,7 +68,40 @@ const ProfileUpdateModal = ({ isOpen, onRequestClose, onConfirmUpdate }) => {
   );
 };
 
-export { LogoutModal, ProfileUpdateModal };
+// PasswordUpdateModal component for confirming password update
+const PasswordUpdateModal = ({ isOpen, onRequestClose, onConfirmUpdate }) => {
+  return (
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-md shadow-md p-6"
+      overlayClassName="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center"
+      contentLabel="Password Update Confirmation"
+    >
+      <div>
+        <h2 className="text-xl font-bold mb-4">Password Update Confirmation</h2>
+        <p className="mb-4">Are you sure you want to update your password?</p>
+        <div className="flex justify-between">
+          <button
+            onClick={onConfirmUpdate}
+            className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md mr-2"
+          >
+            Confirm
+          </button>
+          <button
+            onClick={onRequestClose}
+            className="bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded-md"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </Modal>
+  );
+};
+
+export { LogoutModal, ProfileUpdateModal, PasswordUpdateModal };
+
 
 
 

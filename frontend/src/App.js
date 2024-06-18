@@ -5,6 +5,7 @@ import './App.css'; // Import CSS for styling
 import Navbar from './components/Navbar'; // Import Navbar component
 import Signup from './components/Signup'; // Import Signup component
 import Login from './components/Login'; // Import Login component
+import PasswordReset from './components/PasswordReset'; // Import PasswordReset component
 import Dashboard from './components/Dashboard'; // Import Dashboard component
 import Profile from './components/Profile'; // Import Profile component
 import Home from './components/Home'; // Import Home component
@@ -30,6 +31,7 @@ function AppRouter() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/reset-password/:token" element={<PasswordReset />} /> {/* Add password reset route */}
       </Routes>
     </Router>
   );

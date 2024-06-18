@@ -15,6 +15,11 @@ router.delete('/:userId', userController.deleteUser); // Route to delete a user 
 // Define routes for profile-related actions
 router.get('/profile', authMiddleware, userController.getUserProfile); // Route to get user profile, protected by auth middleware
 router.put('/profile', authMiddleware, userController.updateUserProfile); // Route to update user profile, protected by auth middleware
+router.put('/profile/password', authMiddleware, userController.updateUserPassword); // Update user password
+
+// Define routes for reset-password-related actions
+router.post('/password-reset', userController.requestPasswordReset); // Request password reset
+router.put('/reset-password/:token', userController.resetPassword); // Reset password
 
 // Export the router to use it in the main server file
 module.exports = router;
