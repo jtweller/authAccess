@@ -32,21 +32,20 @@ const Login = () => {
     }
   };
 
-  // Handle password reset request form submission
-  const handlePasswordResetRequest = async () => {
-    try {
-      const response = await axios.post('http://localhost:8000/api/password-reset', { email: resetEmail });
-      setResetMessage(response.data.message);
+// Handle password reset request form submission
+const handlePasswordResetRequest = async () => {
+  try {
+    const response = await axios.post('http://localhost:8000/api/users/password-reset', { email: resetEmail });
+    setResetMessage(response.data.message);
+    setIsModalOpen(false);
+  } catch (error) {
+    console.error('Error sending password reset email:', error);
+    setResetMessage(error.response?.data?.message || 'Error sending password reset email. Please try again.');
+    if (error.response?.status === 404) {
       setIsModalOpen(false);
-    } catch (error) {
-      console.error('Error sending password reset email:', error); // Log the error
-      setResetMessage(error.response?.data?.message || 'Error sending password reset email. Please try again.');
-      if (error.response?.status === 404) {
-        setIsModalOpen(false);
-      }
     }
-  };
-  
+  }
+};
 
   return (
     <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">

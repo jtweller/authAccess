@@ -20,6 +20,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true // Password is required
   },
+  resetPasswordToken: { 
+    type: String 
+  },  // Add resetPasswordToken field
+  resetPasswordExpires: { 
+    type: Date 
+  }, // Add resetPasswordExpires field
   createdAt: {
     type: Date,
     default: Date.now // Default to the current date/time when the user is created

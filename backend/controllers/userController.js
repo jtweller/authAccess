@@ -134,24 +134,28 @@ const updateUserPassword = async (req, res) => {
   }
 };
 
-// Request password reset
+// Send password change request response
 const requestPasswordReset = async (req, res) => {
   const { email } = req.body;
 
   try {
     const user = await User.findOne({ email });
+    console.log(user)
     if (!user) {
       return res.status(404).json({ message: 'Email not associated with a valid account' });
     }
 
+    // Generate a random token for password reset
     const token = crypto.randomBytes(32).toString('hex');
     user.resetPasswordToken = token;
     user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+    console.log(user)
     await user.save();
 
     const resetUrl = `http://localhost:3000/reset-password/${token}`;
     const message = `You are receiving this email because you (or someone else) have requested a password reset. Please click the following link to reset your password: \n\n ${resetUrl}`;
 
+    // Use nodemailer or a similar library to send the reset email
     await sendEmail({
       email: user.email,
       subject: 'Password Reset Request',
@@ -160,6 +164,7 @@ const requestPasswordReset = async (req, res) => {
 
     res.status(200).json({ message: 'Password reset email sent. Please check your inbox.' });
   } catch (error) {
+    console.error('Error sending password reset email:', error);
     res.status(500).json({ message: 'Server error' });
   }
 };
@@ -167,27 +172,37 @@ const requestPasswordReset = async (req, res) => {
 // Reset password
 const resetPassword = async (req, res) => {
   const { token } = req.params;
+  console.log(token)
   const { newPassword } = req.body;
+
 
   try {
     const user = await User.findOne({
       resetPasswordToken: token,
-      resetPasswordExpires: { $gt: Date.now() }
+      resetPasswordExpires: { $gt: Date.now() },
     });
 
     if (!user) {
-      return res.status(400).json({ message: 'Invalid or expired token' });
+      return res.status(400).json({ message: 'Password reset token is invalid or has expired.' });
     }
 
-    const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(newPassword, salt);
+    // Validate new password (example: minimum 6 characters)
+    if (!newPassword || newPassword.length < 6) {
+      return res.status(400).json({ message: 'New password must be at least 6 characters long.' });
+    }
+
+    // Hash the new password before saving
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    user.password = hashedPassword;
     user.resetPasswordToken = undefined;
     user.resetPasswordExpires = undefined;
+
     await user.save();
 
-    res.status(200).json({ message: 'Password reset successful' });
+    return res.status(200).json({ message: 'Password reset successful. You can now log in with your new password.' });
   } catch (error) {
-    res.status(500).json({ message: 'Server error' });
+    console.error('Error resetting password:', error);
+    return res.status(500).json({ message: 'Error resetting password. Please try again.' });
   }
 };
 
@@ -198,7 +213,7 @@ module.exports = {
   deleteUser, 
   getUserProfile, 
   updateUserProfile, 
-  updateUserPassword, 
+  updateUserPassword,
   requestPasswordReset,
   resetPassword 
 };
